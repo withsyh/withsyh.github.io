@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/data.js"></script><script src="assets/site.js"></script>
+<title>SONG, YANGHO | 송양호</title>
+<meta name="description" content="송양호 · 세종연구원 책임연구위원 · 물관리, 홍수·재난안전, 도시환경 연구">
+</head><body><div class="w">
+
+<section class="sec" id="about"><h2><span class="lbl">01 / ABOUT</span><a class="more" href="about.html">더보기 →</a></h2><div class="ct">
+<p>세종연구원에서 물관리, 홍수·재난안전, 도시환경 분야의 정책연구를 하고 있습니다. 오랫동안 홍수예측을 연구해 온 수자원공학자로서, 관측 데이터와 모델로 세종의 물과 도시를 읽고 이를 정책으로 잇는 일을 합니다.</p>
+<ul class="fl"><li><b>물관리 정책</b><span>국가·지역 물관리계획, 상하수도, 금강 수계</span></li><li><b>홍수·재난안전</b><span>홍수예측·경보, 홍수취약성 평가</span></li><li><b>도시환경·데이터</b><span>도시배수, 자연기반해법, 상황판과 디지털트윈</span></li></ul>
+</div></section>
+
+<section class="sec" id="research"><h2><span class="lbl">02 / RESEARCH</span><a class="more" href="research.html">더보기 →</a></h2><div class="ct" id="m-research"></div></section>
+
+<section class="sec" id="publications"><h2><span class="lbl">03 / PUBLICATIONS</span><a class="more" href="publications.html">더보기 →</a></h2><div class="ct" id="m-pubs"></div></section>
+
+<section class="sec" id="cv"><h2><span class="lbl">04 / CV</span><a class="more" href="cv.html">더보기 →</a></h2><div class="ct" id="m-cv"></div></section>
+
+<section class="sec" id="contact"><h2><span class="lbl">05 / CONTACT</span><span class="sn">S-05</span></h2><div class="ct">
+<p><a href="mailto:ysong@sri.re.kr">ysong@sri.re.kr</a><br>세종연구원 · 세종특별자치시 한누리대로 2281<br>
+<a href="https://ysong86.github.io/" target="_blank" rel="noopener">세종 이슈 대시보드</a> · <a href="https://ysong86.github.io/water_sejong/" target="_blank" rel="noopener">Water Sejong</a> · <a href="https://www.researchgate.net/profile/Yangho-Song" target="_blank" rel="noopener">ResearchGate</a></p>
+</div></section>
+
+</div>
+<script>
+header(false);
+document.getElementById("m-research").innerHTML=RESEARCH.filter(r=>r.main).slice(0,3).map(rrHTML).join("");
+const recent=[...PUBS].sort((a,b)=>b.year-a.year).slice(0,5);
+document.getElementById("m-pubs").innerHTML=recent.length?`<ol class="pb">${recent.map(pubHTML).join("")}</ol>`:'<p class="empty">목록 정리 중</p>';
+document.getElementById("m-cv").innerHTML=cvHTML(true);
+</script>
+</body></html>
