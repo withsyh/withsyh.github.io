@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/data.js"></script><script src="assets/site.js"></script>
+<title>Publications | SONG, YANGHO</title>
+</head><body><div class="w">
+<a class="back" href="index.html">← MAIN</a>
+<section class="sec"><h2><span class="lbl">03 / PUBLICATIONS</span><span class="sn">SONG, Y.</span></h2><div class="ct">
+<h1 class="page-h">Publications</h1><p class="page-d">학술논문과 연구보고서 전체 목록입니다.</p>
+<div class="tools"><div class="tabs" id="tabs"><button class="on" data-t="all">ALL</button><button data-t="journal">PAPERS</button><button data-t="report">REPORTS</button></div><input id="q" type="search" placeholder="제목·키워드 검색"><span class="cnt" id="cnt"></span></div>
+<div id="list"></div>
+</div></section>
+</div>
+<script>header(true);let t="all",q="";const draw=()=>{const k=q.toLowerCase().replace(/\s+/g,"");const xs=PUBS.filter(p=>(t==="all"||p.type===t)&&(!k||(p.title+p.src+p.year).toLowerCase().replace(/\s+/g,"").includes(k)));document.getElementById("list").innerHTML=t==="all"&&!k?pubGroups(xs):(xs.length?`<ol class="pb">${xs.sort((a,b)=>b.year-a.year).map(pubHTML).join("")}</ol>`:`<p class="empty">해당 항목이 없습니다.</p>`);document.getElementById("cnt").textContent=`${xs.length} ITEMS`;};
+document.getElementById("tabs").onclick=e=>{const b=e.target.closest("button");if(!b)return;t=b.dataset.t;document.querySelectorAll("#tabs button").forEach(x=>x.classList.toggle("on",x===b));draw();};
+document.getElementById("q").oninput=e=>{q=e.target.value;draw();};draw();</script>
+</body></html>
